@@ -39,8 +39,8 @@ const Navbar = () => {
             <ul className={isOpen ? "navigation open" : "navigation" }>
                
                     <li className="nav-elem"><a href="#home" onClick={() =>  scrollSmooth()}>Home</a></li>
-                    <li className="nav-elem"><a href="#smallProject" onClick={() =>  scrollSmooth()}>Basic projects</a></li>
-                    <li className="nav-elem"><a href="#projects" onClick={() =>  scrollSmooth()}>Projects</a></li>
+                    <li className="nav-elem"><a href="#smallProject" onClick={() =>  scrollSmooth()}>Projects</a></li>
+                   
                     
                     <div className="closeBtn" onClick={() => setIsOpen(false)}><FaRegTimesCircle/></div>
             

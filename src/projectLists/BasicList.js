@@ -1,30 +1,21 @@
 import React from 'react'
-import { FirebaseContext } from '../context/firebase'; 
-import {ref, child, get} from 'firebase/database'
+import {prodAPI} from '../utils/api'
 import { FaExternalLinkAlt } from 'react-icons/fa';
 const BasicList = () => {
 
-    const {database} = React.useContext(FirebaseContext);
+
 
     const [projects, setProjects] = React.useState([]);
-    const dbRef = ref(database)
+    const getProjects = async () => {
+        const result = await fetch(prodAPI);
+        const data = await result.json();
+        setProjects(data.data.projects);
+    }
 
     React.useEffect(() => {
-        get(child(dbRef, 'react-projects/basic')).then((snapshot) =>{
-            if(snapshot.exists()) {
-                const basicProjects = setProjects(snapshot.val());
-                
-                return basicProjects
-            }else{
-                console.log("No data  available");
-            }
-        }).catch((error) => {
-            console.error(error);
-        })
-        return () => {
-
-        }
-    },[dbRef])
+        getProjects();
+      
+    },[])
    
     return (
         <div className="card-list">
