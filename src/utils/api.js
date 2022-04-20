@@ -1,1 +1,1 @@
-export const prodAPI = "https://portfolio-tudor-server.herokuapp.com/reactProjects"
+export const prodAPI = "https://portfolio-tudor-server.herokuapp.com/api/v1/reactProjects"
